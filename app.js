@@ -10,7 +10,7 @@ const io = require('socket.io')(server,{
 })
 
 const { PeerServer } = require('peer');
-const peerServer = PeerServer({ port: 443, path: '/peerjs' });
+const peerServer = PeerServer({ port: 3001, path: '/peerjs' });
 
 peerServer.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
