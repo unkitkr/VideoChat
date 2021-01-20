@@ -12,6 +12,12 @@ const io = require('socket.io')(server,{
 const { PeerServer } = require('peer');
 const peerServer = PeerServer({ port: 3001, path: '/' });
 
+peerServer.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 const shortUID = require('short-uuid');
 
 app.set('view engine', 'ejs')
